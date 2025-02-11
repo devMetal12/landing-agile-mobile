@@ -41,25 +41,44 @@
           <p>Digitaliza la captura de datos y optimiza tu operación sin necesidad de infraestructura costosa.
             Con Wandl Agile Mobile, olvídate del papel y automatiza la recolección de información con una herramienta rápida, accesible y fácil de implementar.</p>
         </div>
-        <video class="demo-phone" autoplay loop muted playsinline>
-          <source src="./assets/demo-phone.mp4" type="video/mp4">
-        </video>
+        <div class="video-container">
+          <iframe 
+            id="bg-video-intro"
+            src="https://www.youtube.com/embed/zSV0sJsSwgw?autoplay=1&mute=1&loop=1&playlist=zSV0sJsSwgw"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
       <div class="section modules" id="modules">
         <div class="text-box">
-          <h2 id="module-title">Características</h2>
+          <h2 id="module-title">Demo inicial</h2>
           <p id="module-description">Equipado con características y módulos para facilitar el flujo de tu negocio</p>
           
           <div class="carousel-controls">
-            <button id="prev-btn">◀</button>
-            <button id="next-btn">▶</button>
+            <button id="prev-btn">
+              <img src="./assets/arrow.svg" alt="◀">
+            </button>
+            <button id="next-btn">
+              <img src="./assets/arrow.svg" alt="▶">
+            </button>
           </div>
+          
         </div>
       
-        <video class="demo-phone" id="module-video" autoplay loop muted playsinline>
-          <source id="video-source" src="./assets/demo-phone.mp4" type="video/mp4">
-        </video>
+        <div class="video-container">
+          <iframe 
+            id="bg-video"
+            src="https://www.youtube.com/embed/zSV0sJsSwgw?start=20&autoplay=1&mute=1&loop=1&playlist=zSV0sJsSwgw"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        </div>
+        
+        
       </div>
 
       <div class="section contact" id="contact">
@@ -88,6 +107,6 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="./js/logo-shrink.js"></script>
+    <script src="./js/logo-shrink.js" defer></script>
   </body>
 </html>

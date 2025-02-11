@@ -25,72 +25,86 @@ ScrollReveal().reveal('.demo-phone');
 
 /* Carousel */
 document.addEventListener("DOMContentLoaded", () => {
-    const titles = [
-      "Captura Inteligente de Datos",
-      "Totalmente Móvil",
-      "Plataforma Web Intuitiva",
-      "Integración con ERPs y Sistemas"
-    ];
-    
-    const descriptions = [
-      "Texto, fotos, videos, audios y fechas en un solo lugar. Escaneo de códigos de barras y NFC. Geolocalización en tiempo real.",
-      "Disponible para Android e iOS. Accede desde cualquier lugar sin restricciones.",
-      "Crea y gestiona formularios sin conocimientos técnicos. Automatiza envíos y controla versiones con permisos personalizados.",
-      "Conéctate fácilmente con SAP, Odoo, Microsoft Dynamics, Oracle y más. Soporte para CRMs, WMSs y API flexible para bases de datos."
-    ];
-  
-    const videos = [
-      "./assets/data-capture.mp4",
-      "./assets/mobile-access.mp4",
-      "./assets/demo-phone.mp4",
-      "./assets/integration.mp4"
-    ];
-  
-    let currentIndex = 0;
-  
-    const titleElement = document.getElementById("module-title");
-    const descriptionElement = document.getElementById("module-description");
-    const videoElement = document.getElementById("module-video");
-    const videoSource = document.getElementById("video-source");
-  
-    document.getElementById("next-btn").addEventListener("click", () => changeSlide(1));
-    document.getElementById("prev-btn").addEventListener("click", () => changeSlide(-1));
-  
-    function changeSlide(direction) {
-      currentIndex = (currentIndex + direction + titles.length) % titles.length;
-  
-      gsap.to([titleElement, descriptionElement], {
-        opacity: 0,
-        y: -20,
-        duration: 0.3,
-        onComplete: () => {
-          titleElement.textContent = titles[currentIndex];
-          descriptionElement.textContent = descriptions[currentIndex];
-  
-          gsap.to([titleElement, descriptionElement], {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-          });
-        }
-      });
-  
-      // Cambio de video con animación suave
-      gsap.to(videoElement, {
-        opacity: 0,
-        duration: 0.3,
-        onComplete: () => {
-          videoSource.src = videos[currentIndex];
-          videoElement.load(); // Recarga el video para aplicar el nuevo src
-  
-          gsap.to(videoElement, {
-            opacity: 1,
-            duration: 0.3,
-          });
-        }
-      });
+  const retailModules = [
+    {
+      title: "Gestión de Ventas",
+      description:
+        "Desde la orden hasta la facturación, controla el ciclo completo de ventas con herramientas avanzadas.",
+      video: "https://www.youtube.com/embed/Bz1r3WZyAzY?autoplay=1&mute=1&loop=1&playlist=Bz1r3WZyAzY",
+    },
+    {
+      title: "Gestión de Compras y Almacén",
+      description:
+        "Registra compras, controla el stock en tiempo real y optimiza la rotación de productos.",
+      video: "https://www.youtube.com/embed/CepNFUnGfVM?autoplay=1&mute=1&loop=1&playlist=CepNFUnGfVM",
+    },
+    {
+      title: "Gestión de Cobros, Pagos y Caja",
+      description:
+        "Administra múltiples métodos de pago y realiza cortes de caja en tiempo real.",
+      video: "https://www.youtube.com/embed/9L0eMwWgVdM?autoplay=1&mute=1&loop=1&playlist=9L0eMwWgVdM",
+    },
+    {
+      title: "Seguridad y Gestión de Usuarios",
+      description:
+        "Configura permisos avanzados para usuarios y supervisa todas las transacciones con auditoría detallada.",
+      video: "https://www.youtube.com/embed/YErYByDI8R8?autoplay=1&mute=1&loop=1&playlist=YErYByDI8R8",
     }
-  });
+  ];
+
+  let currentIndex = 0;
+
+  const titleElement = document.getElementById("module-title");
+  const descriptionElement = document.getElementById("module-description");
+
+  function getVideoElement() {
+    return document.getElementById("bg-video"); // Obtener el iframe cada vez que se usa
+  }
+
+  document.getElementById("next-btn").addEventListener("click", () => changeSlide(1));
+  document.getElementById("prev-btn").addEventListener("click", () => changeSlide(-1));
+
+  function changeSlide(direction) {
+    currentIndex = (currentIndex + direction + retailModules.length) % retailModules.length;
+
+    gsap.to([titleElement, descriptionElement], {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      onComplete: () => {
+        titleElement.textContent = retailModules[currentIndex].title;
+        descriptionElement.textContent = retailModules[currentIndex].description;
+
+        gsap.to([titleElement, descriptionElement], {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+        });
+      }
+    });
+
+    const videoElement = getVideoElement(); // Obtener el iframe
+
+    if (!videoElement) {
+      console.error("Error: No se encontró el iframe con id 'bg-video'.");
+      return;
+    }
+
+    gsap.to(videoElement, {
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => {
+        videoElement.setAttribute("src", retailModules[currentIndex].video);
+        gsap.to(videoElement, {
+          opacity: 1,
+          duration: 0.3,
+        });
+      }
+    });
+  }
+});
+
+
 
 
 /* contact */

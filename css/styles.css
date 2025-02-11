@@ -41,7 +41,10 @@ p {
     justify-content: space-evenly;
     align-items: center;
     padding: 100px;
-}
+    background-image: url("../assets/background-white-green.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
 .text-box{
     width: 50%;
@@ -71,6 +74,8 @@ p {
         padding: 0px;
         padding-top: 50px;
         padding-bottom: 50px;
+        background-position: right;
+        background-size: contain;
     }
 
     .text-box{
@@ -101,27 +106,35 @@ p {
     padding: 20px;
 }
 
-.carousel-controls button {
-    background: none;
-    border: 2px solid #000;
-    color: #000;
-    font-size: 20px;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .carousel-controls button:hover {
-    background: #000;
-    color: #fff;
-  }
-
-  .modules > .text-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* carousel controls */
+#prev-btn img {
+  transform: rotate(180deg); /* Flecha original */
 }
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.carousel-controls button:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.carousel-controls button {
+  width: 100px;
+  height: 40px;
+  object-fit: contain;
+}
+
+
 
 @media (max-width: 1000px) {
     .modules{
@@ -183,6 +196,33 @@ p {
   #info-form button:hover {
     background-color: #444;
   }
+
+  .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Estilo para hacer que el iframe simule un móvil */
+  .video-container iframe {
+    width: 500px; /* Ajusta el ancho como un móvil */
+    height: 300px; /* Ajusta la altura para parecer un móvil */
+    border-radius: 20px; /* Bordes redondeados como un móvil */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto 3D */
+    border: 6px solid #000; /* Simula un borde de móvil */
+  }
+
+  @media screen and (max-width: 768px) {
+    .video-container iframe {
+      width: 90vw; /* Usa el 90% del ancho de la pantalla */
+      height: 50vw; /* Relación de aspecto 16:9 */
+      max-width: 480px; /* Máximo tamaño para no hacerlo muy grande */
+      max-height: 270px;
+      border-radius: 15px;
+    }
+  }
+  
   
   /* Ajustes para móviles */
   @media (max-width: 1000px) {
@@ -196,6 +236,10 @@ p {
   
     #info-form {
       max-width: 90%;
+    }
+
+    .modules > .text-box{
+      margin-bottom: 20px;
     }
   }
   
