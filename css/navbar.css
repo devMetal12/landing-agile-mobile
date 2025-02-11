@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  position: relative;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 4em;
+  justify-content: space-between;
+  background: #fff;
+  z-index: 999;
+}
+
+.items-left, .items-right{
+  max-width: 50px;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-family: Desolator;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.logo-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  height: 100px; /* Asegúrate de que tenga un alto definido */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo, .logo > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Amodified;
+  color: #c3d417;
+
+  font-size: 2vw; /* Tamaño dinámico según el ancho de la pantalla */
+  max-width: 300px; /* Limita el ancho para evitar desbordes */
+  word-wrap: normal;
+  overflow-wrap: break-word; /* Alternativa para compatibilidad */
+  text-align: center;
+}
+
+.logo > img{
+  max-width: 100px;
+  height: auto;
+}
+
+@media (max-width: 1000px) {
+  .logo {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo {
+    font-size: 3vw; /* Aumenta el tamaño relativo para mejor legibilidad */
+    word-break: break-word; /* Asegura que se divida correctamente */
+    max-width: 100px;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.content img {
+  width: 100%;
+}
+
+img {
+  margin-bottom: 4em;
+}
+
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  position: relative;
+  padding: 0;
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra toda la sección */
+  transform: translate(-50%, -50%); /* Centra el video */
+}
