@@ -206,13 +206,28 @@ p {
   }
   
   /* Ajuste del video */
-  .demo-phone-modules{
-    width: 90vw; /* Que ocupe casi toda la pantalla */
-    max-width: 480px; /* Máximo tamaño */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    border: 6px solid #000; /* Simula un borde de móvil */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 270px; /* Tamaño similar a un teléfono */
+    height: 540px; /* Alto del teléfono */
+    border-radius: 40px; /* Bordes redondeados para simular un teléfono */
+    border: 8px solid black; /* Marco del celular */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra para efecto realista */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    background-color: black; /* Fondo para simular una pantalla apagada */
   }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta la imagen sin distorsión */
+    /*transition: opacity 0.3s ease-in-out;*/
+    margin: 0;
+  }
+  
   
   /* Ajuste responsivo */
   @media screen and (max-width: 768px) {

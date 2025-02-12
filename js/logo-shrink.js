@@ -27,34 +27,34 @@ ScrollReveal().reveal('.demo-phone');
 document.addEventListener("DOMContentLoaded", () => {
   const retailModules = [
     {
-      title: "Demo Inicial",
+      title: "Demo",
       description:
-        "Mira cómo Wandl Agile Mobile puede transformar tu negocio con esta demostración en video.",
-      video: "./assets/demo-inicial.mp4",
+        "Mira cómo Wandl Agile Mobile puede transformar tu negocio con esta demostración en imágenes.",
+      image: "./assets/demo.jpg",
     },
     {
       title: "Gestión de Ventas",
       description:
         "Desde la orden hasta la facturación, controla el ciclo completo de ventas con herramientas avanzadas.",
-      video: "./assets/sales-management.mp4",
+      image: "./assets/facturacion.jpg",
     },
     {
       title: "Gestión de Compras y Almacén",
       description:
         "Registra compras, controla el stock en tiempo real y optimiza la rotación de productos.",
-      video: "./assets/purchases-inventory.mp4",
+      image: "./assets/inventario.webp",
     },
     {
       title: "Gestión de Cobros, Pagos y Caja",
       description:
         "Administra múltiples métodos de pago y realiza cortes de caja en tiempo real.",
-      video: "./assets/payments-cashflow.mp4",
+      image: "./assets/facturacion.jpg",
     },
     {
       title: "Seguridad y Gestión de Usuarios",
       description:
         "Configura permisos avanzados para usuarios y supervisa todas las transacciones con auditoría detallada.",
-      video: "./assets/user-security.mp4",
+      image: "./assets/proyecto.jpg",
     }
   ];
 
@@ -62,8 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const titleElement = document.getElementById("module-title");
   const descriptionElement = document.getElementById("module-description");
-  const videoElement = document.getElementById("video-source");
-  const videoSource = videoElement.querySelector("source");
+  const imageElement = document.getElementById("module-image");
 
   document.getElementById("next-btn").addEventListener("click", () => changeSlide(1));
   document.getElementById("prev-btn").addEventListener("click", () => changeSlide(-1));
@@ -71,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function changeSlide(direction) {
     currentIndex = (currentIndex + direction + retailModules.length) % retailModules.length;
 
-    gsap.to([titleElement, descriptionElement], {
+    gsap.to([titleElement, descriptionElement, imageElement], {
       opacity: 0,
       y: -20,
       duration: 0.3,
@@ -79,31 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
         titleElement.textContent = retailModules[currentIndex].title;
         descriptionElement.textContent = retailModules[currentIndex].description;
 
-        gsap.to([titleElement, descriptionElement], {
+        // ✅ Cambio de imagen
+        imageElement.src = retailModules[currentIndex].image;
+
+        gsap.to([titleElement, descriptionElement, imageElement], {
           opacity: 1,
           y: 0,
           duration: 0.3,
         });
       }
     });
-
-    // Cambio de video con animación suave
-    gsap.to(videoElement, {
-      opacity: 0,
-      duration: 0.3,
-      onComplete: () => {
-        videoSource.src = retailModules[currentIndex].video;
-        videoElement.load(); // Recarga el video para aplicar el nuevo src
-
-        gsap.to(videoElement, {
-          opacity: 1,
-          duration: 0.3,
-        });
-      }
-    });
   }
 });
-
 
 
 
