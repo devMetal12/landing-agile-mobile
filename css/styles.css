@@ -115,24 +115,25 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.carousel-controls button {
+  gap: 100px;
+  }
+  
+  .carousel-controls button {
   background: none;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-}
-
-.carousel-controls button:hover {
+  }
+  
+  .carousel-controls button:hover {
   transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-}
-
-.carousel-controls button {
+  }
+  
+  .carousel-controls button {
   width: 100px;
-  height: 40px;
+  height: 80px;
   object-fit: contain;
-}
+  }
 
 
 
@@ -144,6 +145,12 @@ p {
         padding-top: 50px;
         padding-bottom: 50px;
     }
+
+    .carousel-controls button {
+      width: 50px;
+      height: 40px;
+      object-fit: contain;
+      }
 }
 
 /* Sección de Contacto */
