@@ -22,6 +22,7 @@ ScrollReveal({
 
 ScrollReveal().reveal('.text-box');
 ScrollReveal().reveal('.demo-phone');
+ScrollReveal().reveal('.image-container');
 
 /* Carousel */
 document.addEventListener("DOMContentLoaded", () => {
