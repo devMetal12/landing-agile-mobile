@@ -27,28 +27,34 @@ ScrollReveal().reveal('.demo-phone');
 document.addEventListener("DOMContentLoaded", () => {
   const retailModules = [
     {
+      title: "Demo Inicial",
+      description:
+        "Mira cómo Wandl Agile Mobile puede transformar tu negocio con esta demostración en video.",
+      video: "./assets/demo-inicial.mp4",
+    },
+    {
       title: "Gestión de Ventas",
       description:
         "Desde la orden hasta la facturación, controla el ciclo completo de ventas con herramientas avanzadas.",
-      video: "https://www.youtube.com/embed/Bz1r3WZyAzY?autoplay=1&mute=1&loop=1&playlist=Bz1r3WZyAzY",
+      video: "./assets/sales-management.mp4",
     },
     {
       title: "Gestión de Compras y Almacén",
       description:
         "Registra compras, controla el stock en tiempo real y optimiza la rotación de productos.",
-      video: "https://www.youtube.com/embed/CepNFUnGfVM?autoplay=1&mute=1&loop=1&playlist=CepNFUnGfVM",
+      video: "./assets/purchases-inventory.mp4",
     },
     {
       title: "Gestión de Cobros, Pagos y Caja",
       description:
         "Administra múltiples métodos de pago y realiza cortes de caja en tiempo real.",
-      video: "https://www.youtube.com/embed/9L0eMwWgVdM?autoplay=1&mute=1&loop=1&playlist=9L0eMwWgVdM",
+      video: "./assets/payments-cashflow.mp4",
     },
     {
       title: "Seguridad y Gestión de Usuarios",
       description:
         "Configura permisos avanzados para usuarios y supervisa todas las transacciones con auditoría detallada.",
-      video: "https://www.youtube.com/embed/YErYByDI8R8?autoplay=1&mute=1&loop=1&playlist=YErYByDI8R8",
+      video: "./assets/user-security.mp4",
     }
   ];
 
@@ -56,10 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const titleElement = document.getElementById("module-title");
   const descriptionElement = document.getElementById("module-description");
-
-  function getVideoElement() {
-    return document.getElementById("bg-video"); // Obtener el iframe cada vez que se usa
-  }
+  const videoElement = document.getElementById("video-source");
+  const videoSource = videoElement.querySelector("source");
 
   document.getElementById("next-btn").addEventListener("click", () => changeSlide(1));
   document.getElementById("prev-btn").addEventListener("click", () => changeSlide(-1));
@@ -83,18 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const videoElement = getVideoElement(); // Obtener el iframe
-
-    if (!videoElement) {
-      console.error("Error: No se encontró el iframe con id 'bg-video'.");
-      return;
-    }
-
+    // Cambio de video con animación suave
     gsap.to(videoElement, {
       opacity: 0,
       duration: 0.3,
       onComplete: () => {
-        videoElement.setAttribute("src", retailModules[currentIndex].video);
+        videoSource.src = retailModules[currentIndex].video;
+        videoElement.load(); // Recarga el video para aplicar el nuevo src
+
         gsap.to(videoElement, {
           opacity: 1,
           duration: 0.3,

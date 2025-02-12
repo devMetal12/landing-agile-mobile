@@ -202,26 +202,26 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
+    margin: 20px 0;
   }
   
-  /* Estilo para hacer que el iframe simule un móvil */
-  .video-container iframe {
-    width: 500px; /* Ajusta el ancho como un móvil */
-    height: 300px; /* Ajusta la altura para parecer un móvil */
-    border-radius: 20px; /* Bordes redondeados como un móvil */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto 3D */
+  /* Ajuste del video */
+  .demo-phone-modules{
+    width: 90vw; /* Que ocupe casi toda la pantalla */
+    max-width: 480px; /* Máximo tamaño */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     border: 6px solid #000; /* Simula un borde de móvil */
   }
-
+  
+  /* Ajuste responsivo */
   @media screen and (max-width: 768px) {
-    .video-container iframe {
-      width: 90vw; /* Usa el 90% del ancho de la pantalla */
-      height: 50vw; /* Relación de aspecto 16:9 */
-      max-width: 480px; /* Máximo tamaño para no hacerlo muy grande */
-      max-height: 270px;
-      border-radius: 15px;
+    .video-container video {
+      width: 100%; /* Ocupar todo el ancho disponible */
+      max-width: 360px;
     }
   }
+  
   
   
   /* Ajustes para móviles */
