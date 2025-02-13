@@ -25,31 +25,44 @@ ScrollReveal().reveal('.demo-phone');
 ScrollReveal().reveal('.image-container');
 
 /* contact */
-document.getElementById("info-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-  
-    // Capturar los datos del formulario
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const message = document.getElementById("message").value;
-  
-    // Simulación de envío
-    console.log("Formulario enviado:", { name, email, phone, message });
-  
-    // Animación de confirmación
-    gsap.to("#info-form", {
-      opacity: 0,
-      y: -20,
-      duration: 0.5,
-      onComplete: () => {
-        document.querySelector(".text-box").innerHTML = `
-          <h2>¡Gracias por tu interés!</h2>
-          <p>Hemos recibido tu solicitud y te contactaremos pronto.</p>
-        `;
-  
-        gsap.to(".text-box", { opacity: 1, y: 0, duration: 0.5 });
-      }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("info-form");
+  const successMessage = document.createElement("p");
+  successMessage.textContent = "¡Mensaje enviado con éxito!";
+  successMessage.style.color = "green";
+  successMessage.style.fontWeight = "bold";
+  successMessage.style.display = "none";
+  form.appendChild(successMessage);
+
+  form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+      formData.forEach((value, key) => {
+          params.append(key, value);
+      });
+      
+      fetch("https://formsubmit.co/el/jagoji", {
+          method: "POST",
+          body: params,
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded'
+          }
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              successMessage.style.display = "block";
+              form.reset();
+          } else {
+              alert("Hubo un error al enviar el mensaje.");
+          }
+      })
+      .catch(error => {
+          alert("Error de conexión. Inténtalo nuevamente.");
+          console.error("Error:", error);
+      });
   });
-  
+});
