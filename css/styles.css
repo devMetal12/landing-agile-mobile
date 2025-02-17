@@ -51,6 +51,7 @@ p {
     text-align: left;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
@@ -58,6 +59,7 @@ p {
 .text-box > p{
     padding: 20px;
     font-size: 20px;
+    text-align: center;
 }
 
 .demo-phone{
@@ -291,6 +293,7 @@ p {
   /* CTA BUtoons */
 
   .cta-button {
+    width: 100%;
     margin-top: 20px;
     background: linear-gradient(135deg, #2d2a26, #1e1c19); /* Degradado negro/gris oscuro */
     color: #ffffff; /* Texto blanco para máximo contraste */
@@ -307,6 +310,12 @@ p {
     overflow: hidden;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     font-family: "Rubik", sans-serif;
+  }
+
+  @media (max-width: 1000px) {
+    .cta-button{
+      width: 50%;
+    }
   }
   
   /* Efecto hover: Cambio de color y sombra intensa */
