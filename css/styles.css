@@ -49,12 +49,11 @@ p {
 .text-box{
     width: 50%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
-.text-box > h2{
-    padding: 20px;
-    font-size: 4vw;
-}
+
 
 .text-box > p{
     padding: 20px;
@@ -115,7 +114,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 20px;
   }
   
   .carousel-controls button {
@@ -135,7 +134,11 @@ p {
   object-fit: contain;
   }
 
-
+  h2{
+    padding: 20px;
+    font-size: 3vw;
+    text-align: center;
+}
 
 @media (max-width: 1000px) {
     .modules{
@@ -150,6 +153,26 @@ p {
       width: 50px;
       height: 40px;
       object-fit: contain;
+      }
+    
+      .module-title{
+        display: flex;
+        align-items: center;
+      }
+
+      h2{
+        padding: 20px;
+        font-size: 3vw;
+        text-align: center;
+        width: 200px;
+    }
+    
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
       }
 }
 
@@ -263,5 +286,108 @@ p {
     .modules > .text-box{
       margin-bottom: 20px;
     }
+  }
+
+  /* CTA BUtoons */
+
+  .cta-button {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #2d2a26, #1e1c19); /* Degradado negro/gris oscuro */
+    color: #ffffff; /* Texto blanco para máximo contraste */
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    font-family: "Rubik", sans-serif;
+  }
+  
+  /* Efecto hover: Cambio de color y sombra intensa */
+  .cta-button:hover {
+    background: linear-gradient(135deg, #000000, #2d2a26);
+    color: #c3d417; /* Cambia el texto a verde para resaltar */
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+  
+  /* Efecto de "presión" al hacer clic */
+  .cta-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animación de iluminación lateral */
+  .cta-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(25deg);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .cta-button:hover::before {
+    left: 120%;
+  }
+  
+
+  .contact-button {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #c3d417, #a8b312); /* Degradado con el color de la marca */
+    color: #2d2a26;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(195, 212, 23, 0.3);
+    font-family: "Rubik", sans-serif;
+  }
+  
+  /* Efecto hover: Cambio de color y sombra intensa */
+  .contact-button:hover {
+    background: linear-gradient(135deg, #a8b312, #8f9c0f);
+    color: #fff;
+    box-shadow: 0px 5px 25px rgba(195, 212, 23, 0.5);
+    transform: scale(1.05);
+  }
+  
+  /* Efecto de "presión" al hacer clic */
+  .contact-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 10px rgba(195, 212, 23, 0.2);
+  }
+  
+  /* Animación de iluminación lateral */
+  .contact-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(25deg);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .contact-button:hover::before {
+    left: 120%;
   }
   
