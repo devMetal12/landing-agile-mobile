@@ -133,8 +133,8 @@ p {
   }
   
   .carousel-controls button {
-  width: 100px;
-  height: 80px;
+  width: 120px;
+  height: 100px;
   object-fit: contain;
   }
 
@@ -155,8 +155,8 @@ p {
     }
 
     .carousel-controls button {
-      width: 70px;
-      height: 40px;
+      width: 100px;
+      height: 80px;
       object-fit: contain;
       }
     
@@ -177,7 +177,7 @@ p {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 0px;
       width: 100%;
       }
 }
