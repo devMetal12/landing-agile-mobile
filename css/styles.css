@@ -136,7 +136,7 @@ p {
   object-fit: contain;
   }
 
-  h2{
+  module-title{
     padding: 20px;
     font-size: 3vw;
     text-align: center;
@@ -162,7 +162,7 @@ p {
         align-items: center;
       }
 
-      h2{
+      module-title{
         padding: 20px;
         font-size: 3vw;
         text-align: center;
@@ -308,7 +308,7 @@ p {
     transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
     font-family: "Rubik", sans-serif;
   }
 
