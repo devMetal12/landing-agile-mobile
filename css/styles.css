@@ -28,6 +28,7 @@ h1{
 
 h2, h3, h4, h5 {
     font-family: Desolator;
+    text-align: center;
 }
 
 p {
@@ -124,6 +125,7 @@ p {
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  width: 80px;
   }
   
   .carousel-controls button:hover {
@@ -136,10 +138,11 @@ p {
   object-fit: contain;
   }
 
-  module-title{
+  #module-title{
     padding: 20px;
     font-size: 3vw;
     text-align: center;
+    width: 250px;
 }
 
 @media (max-width: 1000px) {
@@ -152,28 +155,29 @@ p {
     }
 
     .carousel-controls button {
-      width: 50px;
+      width: 70px;
       height: 40px;
       object-fit: contain;
       }
     
-      .module-title{
+      #module-title{
         display: flex;
         align-items: center;
+        justify-content: center;
       }
 
-      module-title{
+      #module-title{
         padding: 20px;
-        font-size: 3vw;
+        font-size: 5vw;
         text-align: center;
-        width: 200px;
+        width: 230px;
     }
     
     .carousel-controls {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 30px;
+      gap: 10px;
       width: 100%;
       }
 }
