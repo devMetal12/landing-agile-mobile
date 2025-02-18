@@ -139,10 +139,10 @@ p {
   }
 
   #module-title{
-    padding: 20px;
     font-size: 3vw;
     text-align: center;
-    width: 250px;
+    width: 250px; 
+    padding: 0px;
 }
 
 @media (max-width: 1000px) {
