@@ -138,6 +138,12 @@ p {
   object-fit: contain;
   }
 
+  /* Elimina el efecto azul al hacer clic */
+.carousel-controls button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
   #module-title{
     font-size: 3vw;
     text-align: center;
